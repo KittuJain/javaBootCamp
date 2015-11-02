@@ -2,8 +2,8 @@ package com.tw;
 
 public class Rental {
 
-    private Movie movie;
-    private int daysRented;
+    Movie movie;
+    protected int daysRented;
 
     public Rental(Movie movie, int daysRented) {
         this.movie = movie;
@@ -14,14 +14,11 @@ public class Rental {
         return movie.getCostFor(daysRented);
     }
 
-    public int getFrequentRenterPoints() {
-        int frequentRenterPoints = 1;
-        if ((movie.getPriceCode() == PriceCode.NEW_RELEASE) && daysRented > 1)
-            frequentRenterPoints++;
-        return frequentRenterPoints;
-    }
-
     public String getRentedMovieStatement() {
         return "\t" + movie.getTitle() + "\t" + getRentedAmount() + "\n";
+    }
+
+    public int getFrequentRenterPoints(){
+        return movie.getFrequentRenterPoints(daysRented);
     }
 }

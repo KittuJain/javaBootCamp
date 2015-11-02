@@ -9,7 +9,7 @@ public class CustomerTest {
     @Test
     public void statementShouldGetStatementForRentingNewReleaseMovie() throws Exception {
         Customer customer = new Customer("Ram");
-        Rental rental = new Rental(new Movie("The Martians", PriceCode.NEW_RELEASE), 4);
+        Rental rental = new Rental(new NewReleaseMovie("The Martians"), 4);
         customer.addRental(rental);
         String statement = customer.statement();
         String expectedStatement = "Rental Record for Ram\n" +
@@ -23,7 +23,7 @@ public class CustomerTest {
     @Test
     public void statementShouldGetStatementForRentingChildrenMovie() throws Exception {
         Customer customer = new Customer("Ram");
-        Rental rental = new Rental(new Movie("Tom and Jerry", PriceCode.CHILDRENS), 4);
+        Rental rental = new Rental(new ChildrensMovie("Tom and Jerry", 1.5, 1.5, 3), 4);
         customer.addRental(rental);
         String statement = customer.statement();
         String expectedStatement = "Rental Record for Ram\n" +
@@ -37,7 +37,7 @@ public class CustomerTest {
     @Test
     public void statementShouldGetStatementForRentingRegularMovie() throws Exception {
         Customer customer = new Customer("Ram");
-        Rental rental = new Rental(new Movie("PK", PriceCode.REGULAR), 4);
+        Rental rental = new Rental(new RegularMovie("PK"), 4);
         customer.addRental(rental);
         String statement = customer.statement();
         String expectedStatement = "Rental Record for Ram\n" +

@@ -1,28 +1,18 @@
 package com.tw;
 
-public class Movie {
+public abstract class Movie {
 
     private String _title;
-    private PriceCode priceCode;
 
-    public Movie(String title, PriceCode priceCode) {
+    public Movie(String title) {
         _title = title;
-        this.priceCode = priceCode;
-    }
-
-    public PriceCode getPriceCode() {
-        return priceCode;
-    }
-
-    public void setPriceCode(PriceCode priceCode) {
-        this.priceCode = priceCode;
     }
 
     public String getTitle() {
         return _title;
     }
 
-    public double getCostFor(int daysRented) {
-        return priceCode.getCostFor(daysRented);
-    }
+    public abstract double getCostFor(int daysRented);
+
+    public abstract int getFrequentRenterPoints(int daysRented);
 }
