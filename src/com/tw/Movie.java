@@ -22,7 +22,6 @@ public class Movie {
         return _title;
     }
 
-
     public double getCostFor(int daysRented) {
         return priceCode.getCostFor(daysRented);
     }
